@@ -26,26 +26,32 @@ the first time I'm trying out the new streams and lambda syntax in Java 8. So fa
 1. Make sure you have the Java 8 runtime installed. You can [download it here](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html).
 2. Make sure you have an SMTP server installed and running. The instructions will be different for each OS:
     * Mac OSX: Postfix should already be installed, so you should be able to run the following:
-      ```
-      sudo postfix start
-      ```
+
+        ```
+        sudo postfix start
+        ```
+
     * Windows: It seems that you can't configure SMTP on IIS anymore [in newer version of Windows](http://stackoverflow.com/questions/15418597/how-to-enable-smtp-for-iis-8).
     If you want to test on Desktop (non-Server) Windows and can't configure a local SMTP server, let me know and I can make changes to support remote SMTP servers.
     * Linux: Postfix may not be installed yet depending on your distro, so you might have to install it first before starting it (Debian-based distro example):
-      ```
-      sudo apt-get update
-      sudo apt-get install postfix
-      sudo service postfix start
-      ```
+
+        ```
+        sudo apt-get update
+        sudo apt-get install postfix
+        sudo service postfix start
+        ```
+
 3. Grab the [precompiled JAR](https://github.com/dsw88/Github-Org-Sweeper/releases/download/1.0/org-sweeper-1.0.0.jar) in the [Releases section](https://github.com/dsw88/Github-Org-Sweeper/releases/tag/1.0) of the repository. You can also compile the JAR yourself using Maven if you wish.
 4. Add your Amazon credentials using one of the following methods:
     * Set them in the environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
     * Pass them as Java system properties when starting the program: aws.accessKeyId and aws.secretKey
     * Set them in ~/.aws/credentials (see http://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html for more details)
 5. Invoke the program with the following command (Replace <githubOrg> and <s3Bucket> with your GitHub organization name and S3 bucket name):
+
   ```
   java -jar org-sweeper-1.0.0.jar --githubOrgName <githubOrg> --s3BucketName <s3Bucket>
   ```
+  
 6. The program will prompt for your GitHub credentials during execution.
 
 # Final Words
