@@ -54,9 +54,11 @@ the first time I'm trying out the new streams and lambda syntax in Java 8. So fa
         export AWS_SECRET_ACCESS_KEY="YOUR_SECRET"
         ```
     * Pass them as Java system properties when starting the program: aws.accessKeyId and aws.secretKey
+    
         ```
         java -Daws.accessKeyId="YOUR_KEY" -Daws.secretKey="YOUR_SECRET" ...rest of command
         ```
+        
     * Set them in ~/.aws/credentials using the AWS cli command "aws configure" (see http://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html for more details).
 5. Invoke the program with the following command (Replace <githubOrg> and <s3Bucket> with your GitHub organization name and S3 bucket name):
 
