@@ -43,9 +43,21 @@ the first time I'm trying out the new streams and lambda syntax in Java 8. So fa
 
 3. Grab the [precompiled JAR](https://github.com/dsw88/Github-Org-Sweeper/releases/download/1.0/org-sweeper-1.0.0.jar) in the [Releases section](https://github.com/dsw88/Github-Org-Sweeper/releases/tag/1.0) of the repository. You can also compile the JAR yourself using Maven if you wish.
 4. Add your Amazon credentials using one of the following methods:
-    * Set them in the environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+    * Set them in the environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY:
+        ```
+        # Windows Powershell
+        $env:AWS_ACCESS_KEY_ID="YOUR_KEY"
+        $env:AWS_SECRET_ACCESS_KEY="YOUR_SECRET"
+        
+        # Bash
+        export AWS_ACCESS_KEY_ID="YOUR_KEY"
+        export AWS_SECRET_ACCESS_KEY="YOUR_SECRET"
+        ```
     * Pass them as Java system properties when starting the program: aws.accessKeyId and aws.secretKey
-    * Set them in ~/.aws/credentials (see http://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html for more details)
+        ```
+        java -Daws.accessKeyId="YOUR_KEY" -Daws.secretKey="YOUR_SECRET" ...rest of command
+        ```
+    * Set them in ~/.aws/credentials using the AWS cli command "aws configure" (see http://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html for more details).
 5. Invoke the program with the following command (Replace <githubOrg> and <s3Bucket> with your GitHub organization name and S3 bucket name):
 
   ```
